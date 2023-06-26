@@ -1,20 +1,19 @@
-RED's proposal 
+# RED's proposal 
 
-JobFit Explorer 
+# JobFit Explorer 
 
-#GOAL 8: Decent Work and Economic Growth
+# GOAL 8: Decent Work and Economic Growth
 
 - Make a job finder app that ask you what your academic background and interest are and suggests what industry is fit for you along with what jobs people like you are taking and interested in
 
-#Features
+## Features
 - Interest matching 
 - Industry Suggestions 
 - Top performing industries 
 - Job Finding
 - Industry Statistics
 
-#References
-
+## References
 Patidar, B. (n.d.). Online Job portal project in java with source code and project report. https://codebun.com/online-job-portal-project-in-java-with-source-code-and-project-report/
 
 Dynamic Bar chart in Java FX. (n.d.). Stack Overflow. https://stackoverflow.com/questions/53573747/dynamic-bar-chart-in-java-fx

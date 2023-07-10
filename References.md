@@ -1,4 +1,4 @@
-##References
+## References
 Patidar, B. (n.d.). Online Job portal project in java with source code and project report. https://codebun.com/online-job-portal-project-in-java-with-source-code-and-project-report/
 
 Dynamic Bar chart in Java FX. (n.d.). Stack Overflow. https://stackoverflow.com/questions/53573747/dynamic-bar-chart-in-java-fx

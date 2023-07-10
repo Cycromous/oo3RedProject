@@ -1,4 +1,9 @@
-# RED's proposal: JobFit Explorer 
+# RED's proposal: JobFit Explorer
+
+## Team Members
+John Ray M. Cardeño (Team Lead)
+Aztine Armelle S. Ganaden
+Angelo Christian P. Balagtas
 
 ## GOAL 8: Decent Work and Economic Growth
 

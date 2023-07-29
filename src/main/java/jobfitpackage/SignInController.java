@@ -26,6 +26,7 @@ public class SignInController {
     @FXML
     void initialize() {
         profileList = ProfileList.getInstance();
+        System.out.println("Hello");
     }
 
     @FXML

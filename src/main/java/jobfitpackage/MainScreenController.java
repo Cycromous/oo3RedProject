@@ -21,9 +21,10 @@ import java.io.IOException;
 public class MainScreenController {
     private JobList jobList;
     private String field;
+    private Profile profile;
 
     @FXML
-    private Text DegreeField;
+    private Text degreeField;
 
     @FXML
     private VBox industryVBox;
@@ -48,14 +49,22 @@ public class MainScreenController {
 
     @FXML
     public void initialize() {
+        profile = SessionManager.getCurrentProfile();
+
         jobList = new JobList();
         jobList.loadJobs();
 
+        // Display all jobs
         for (int i = 0; i < jobList.getSize(); i++) {
             Job currentJob = jobList.getJob(i);
             HBox jobHBox = createJobHBox(currentJob);
             jobsVBox.getChildren().add(jobHBox);
         }
+
+        // Update Name, Degree, and University Attended TextFields
+        if (profile.getName() != null) nameField.setText(profile.getName());
+        if (profile.getDegree() != null) degreeField.setText(profile.getDegree());
+        if (profile.getUniversity() != null) universityField.setText(profile.getUniversity());
     }
 
     @FXML
@@ -86,19 +95,18 @@ public class MainScreenController {
 
     @FXML
     void editProfileClicked() throws IOException {
-        switchToProfileScreen();
+        switchToProfileScreen(this.profile);
     }
 
-    void switchToProfileScreen() throws IOException {
+    public void switchToProfileScreen(Profile profile) throws IOException {
         // Get a reference to the Stage from the current scene
         Stage currentStage = (Stage) profileButton.getScene().getWindow();
 
         // Load the FXML file for the profile screen scene
         FXMLLoader profileScreenLoader = new FXMLLoader(getClass().getResource("/FXML-Files/edit-profile.fxml"));
         Parent profileScreenRoot = profileScreenLoader.load();
-        Scene profileScreenScene = new Scene(profileScreenRoot);
 
-        // Set the new scene without affecting the jobsVBox
+        Scene profileScreenScene = new Scene(profileScreenRoot);
         currentStage.setScene(profileScreenScene);
         currentStage.setTitle("Profile");
     }

@@ -18,8 +18,6 @@ public class Main extends Application {
         // Load the FXML file for the sign-in scene
         FXMLLoader signInLoader = new FXMLLoader(getClass().getResource("/FXML-Files/sign-in.fxml"));
         Parent signInRoot = signInLoader.load();
-        SignInController signInController = signInLoader.getController();
-        signInController.setProfileList(profileList);
 
         Scene scene = new Scene(signInRoot);
         stage.setTitle("Sign In");

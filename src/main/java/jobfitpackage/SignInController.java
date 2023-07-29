@@ -47,6 +47,7 @@ public class SignInController {
 
             Profile profile = profileList.getProfile(profileIndex);
             if (profile.getPassword().equals(password)) {
+                SessionManager.setCurrentProfile(profile); // Set the current profile
                 switchToMainScreen();
                 System.out.println("Login successful!");
             } else {
@@ -85,6 +86,7 @@ public class SignInController {
         // Load the FXML file for the main screen scene
         FXMLLoader mainScreenLoader = new FXMLLoader(getClass().getResource("/FXML-Files/main-screen.fxml"));
         Parent mainScreenRoot = mainScreenLoader.load();
+
         Scene mainScreenScene = new Scene(mainScreenRoot);
         currentStage.setScene(mainScreenScene);
         currentStage.setTitle("JobFit Explorer");

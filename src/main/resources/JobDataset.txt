@@ -1,0 +1,20 @@
+Software Engineer,Technology,₱100 000,Hybrid,Computer Science Degree
+Registered Nurse,Medical,₱70 000,On-Site,Medical Degree
+Graphic Designer,Creatives,₱60 000,Work-from-Home,Art Degree
+Financial Analyst,Finance,₱80 000,Hybrid,Finance Degree
+Civil Engineer,Engineering,₱90 000,On-Site,Engineering Degree
+Data Scientist,Technology,₱95 000,Work-from-Home,Computer Science Degree
+Doctor,Medical,₱120 000,Hybrid,Medical Degree
+UX/UI Designer,Creatives,₱70 000,On-Site,Art Degree
+Investment Banker,Finance,₱120 000,Work-from-Home,Finance Degree
+Electrical Engineer,Engineering,₱85 000,Hybrid,Engineering Degree
+Nurse Practitioner,Medical,₱90 000,Work-from-Home,Medical Degree
+Web Developer,Technology,₱80 000,On-Site,Computer Science Degree
+Animator,Creatives,₱50 000,Hybrid,Art Degree
+Financial Manager,Finance,₱110,000,Work-from-Home,Finance Degree
+Mechanical Engineer,Engineering,₱95 000,On-Site,Engineering Degree
+Pharmacist,Medical,₱100 000,Hybrid,Medical Degree
+Game Designer,Creatives,₱65 000,Work-from-Home,Art Degree
+Investment Analyst,Finance,₱85 000,On-Site,Finance Degree
+Software Developer,Technology,₱90 000,Hybrid,Computer Science Degree
+Biomedical Engineer,Engineering,₱80 000,Work-from-Home,Engineering Degree

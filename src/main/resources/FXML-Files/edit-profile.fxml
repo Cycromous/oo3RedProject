@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="217.0" prefHeight="46.0" prefWidth="849.0" text="JobFit Explorer" textAlignment="CENTER">
+      <font>
+         <Font size="48.0" />
+      </font></Label>
+
+
+    <Label fx:id="nameLabel" layoutX="30" layoutY="200" />
+    <Label fx:id="statusLabel" layoutX="30" layoutY="230" />
+    <ImageView fx:id="imageView" fitHeight="120" fitWidth="120" layoutX="200" layoutY="200" />
+
+
+    <ListView fx:id="friendsListView" layoutX="11.0" layoutY="74.0" prefHeight="576.0" prefWidth="860.0">
+        <contextMenu>
+            <ContextMenu>
+                <items>
+                    <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                </items>
+            </ContextMenu>
+        </contextMenu></ListView>
+
+
+    <Button fx:id="addButton" layoutX="11.0" layoutY="667.0" prefHeight="39.0" prefWidth="164.0" text="Edit Profile" />
+
+
+    <Label fx:id="welcomeText" layoutX="30" layoutY="350" />
+    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="514.0" layoutY="56.0" prefHeight="18.0" prefWidth="254.0" text="Your adventure starts here" textAlignment="CENTER" />
+    <Button fx:id="addButton1" layoutX="1101.0" layoutY="667.0" prefHeight="39.0" prefWidth="164.0" text="Job Finder" />
+    <TextField fx:id="imageTextField11" layoutX="890.0" layoutY="74.0" prefHeight="230.0" prefWidth="375.0" />
+   <TextField fx:id="imageTextField111" layoutX="890.0" layoutY="420.0" prefHeight="230.0" prefWidth="375.0" />
+   <Label alignment="CENTER" layoutX="890.0" layoutY="303.0" prefHeight="39.0" prefWidth="365.0" text="Top Industries">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Label>
+   <Label alignment="CENTER" layoutX="891.0" layoutY="385.0" prefHeight="17.0" prefWidth="365.0" text="Industry Statistics">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Label>
+</AnchorPane>

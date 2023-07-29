@@ -3,8 +3,14 @@ package jobfitpackage;
 public class Job {
     String name, field, salary, workSetup, degree;
 
-    // default constructor
-    public Job() {}
+    // Constructor class
+    public Job(String name, String field, String salary, String workSetup, String degree) {
+        this.name = name;
+        this.field = field;
+        this.salary = salary;
+        this.workSetup = workSetup;
+        this.degree = degree;
+    }
 
     // GETTERS
     public String getName() {

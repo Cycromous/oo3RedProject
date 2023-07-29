@@ -7,7 +7,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -21,6 +20,7 @@ import java.io.IOException;
 
 public class MainScreenController {
     private JobList jobList;
+    private String field;
 
     @FXML
     private Text DegreeField;
@@ -30,9 +30,6 @@ public class MainScreenController {
 
     @FXML
     private TextField jobNameTextField;
-
-    @FXML
-    private ScrollPane jobsScrollPane;
 
     @FXML
     private VBox jobsVBox;
@@ -108,12 +105,37 @@ public class MainScreenController {
 
     @FXML
     void medicalClicked() {
-        displayJobsByField("Medical");
+        field = "Medical";
+        displayJobsByField(field);
+        // TODO: Display ImageView of Industry Statistics of respective field
     }
 
     @FXML
     void engineeringClicked() {
-        displayJobsByField("Engineering");
+        field = "Engineering";
+        displayJobsByField(field);
+        // TODO: Display ImageView of Industry Statistics of respective field
+    }
+
+    @FXML
+    void technologyClicked() {
+        field = "Technology";
+        displayJobsByField(field);
+        // TODO: Display ImageView of Industry Statistics of respective field
+    }
+
+    @FXML
+    void creativesClicked() {
+        field = "Creatives";
+        displayJobsByField(field);
+        // TODO: Display ImageView of Industry Statistics of respective field
+    }
+
+    @FXML
+    void financeClicked() {
+        field = "Finance";
+        displayJobsByField(field);
+        // TODO: Display ImageView of Industry Statistics of respective field
     }
 
     public void displayJobsByField(String field) {
@@ -127,21 +149,6 @@ public class MainScreenController {
                 jobsVBox.getChildren().add(jobHBox);
             }
         }
-    }
-
-    @FXML
-    void technologyClicked() {
-        displayJobsByField("Technology");
-    }
-
-    @FXML
-    void creativesClicked() {
-        displayJobsByField("Creatives");
-    }
-
-    @FXML
-    void financeClicked() {
-        displayJobsByField("Finance");
     }
 
     public HBox createJobHBox(Job job) {

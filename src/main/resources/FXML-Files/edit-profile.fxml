@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="790.0" prefWidth="825.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jobfitpackage.MainScreenController">
+<AnchorPane prefHeight="790.0" prefWidth="825.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jobfitpackage.EditProfileController">
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#7892b7" height="790.0" stroke="TRANSPARENT" strokeType="INSIDE" width="828.0" />
     <ImageView fx:id="logoImageView" fitHeight="100.0" fitWidth="100.0" layoutX="166.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
         <image>

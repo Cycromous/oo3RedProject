@@ -2,7 +2,9 @@ package jobfitpackage;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -13,8 +15,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -108,16 +108,21 @@ public class MainScreenController {
 
     @FXML
     void editProfileClicked() throws IOException {
+        switchToProfileScreen();
+    }
+
+    void switchToProfileScreen() throws IOException {
         // Get a reference to the Stage from the current scene
         Stage currentStage = (Stage) profileButton.getScene().getWindow();
 
-// Load the FXML file for the main screen scene
-        FXMLLoader profileLoader = new FXMLLoader(getClass().getResource("/FXML-Files/edit-profile.fxml"));
-        Parent profileSceneRoot = profileLoader.load();
-        Scene profileScene = new Scene(profileSceneRoot);
-        currentStage.setScene(profileScene);
-        currentStage.setTitle("Profile");
+        // Load the FXML file for the profile screen scene
+        FXMLLoader profileScreenLoader = new FXMLLoader(getClass().getResource("/FXML-Files/edit-profile.fxml"));
+        Parent profileScreenRoot = profileScreenLoader.load();
+        Scene profileScreenScene = new Scene(profileScreenRoot);
 
+        // Set the new scene without affecting the jobsVBox
+        currentStage.setScene(profileScreenScene);
+        currentStage.setTitle("Profile");
     }
 
     @FXML

@@ -47,7 +47,7 @@ public class SignInController {
 
             Profile profile = profileList.getProfile(profileIndex);
             if (profile.getPassword().equals(password)) {
-                switchToMainScreen(currentProfile);
+                switchToMainScreen();
                 System.out.println("Login successful!");
             } else {
                 createAlert("Incorrect password. Please try again.", "Incorrect Password");
@@ -78,7 +78,7 @@ public class SignInController {
         alert.showAndWait();
     }
 
-    public void switchToMainScreen(Profile profile) throws IOException {
+    public void switchToMainScreen() throws IOException {
         // Get a reference to the Stage from the current scene
         Stage currentStage = (Stage) signupHyperlink.getScene().getWindow();
 

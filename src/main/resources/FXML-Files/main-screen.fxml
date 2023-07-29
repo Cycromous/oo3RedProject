@@ -226,4 +226,9 @@
          </VBox>
       </children>
    </StackPane>
+   <Button layoutX="566.0" layoutY="146.0" onAction="#allClicked" prefHeight="40.0" prefWidth="98.0" style="-fx-background-radius: 15; -fx-background-color: #4267B2;" text="All" textAlignment="CENTER" textFill="WHITE">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Button>
 </AnchorPane>

@@ -1,6 +1,5 @@
 package jobfitpackage;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -22,17 +21,9 @@ import java.io.IOException;
 
 public class MainScreenController {
     private JobList jobList;
+
     @FXML
     private Text DegreeField;
-
-    @FXML
-    private ImageView creativesImageView;
-
-    @FXML
-    private ImageView engineeringImageView;
-
-    @FXML
-    private ImageView financeImageView;
 
     @FXML
     private VBox industryVBox;
@@ -47,19 +38,10 @@ public class MainScreenController {
     private VBox jobsVBox;
 
     @FXML
-    private ImageView logoImageView;
-
-    @FXML
-    private ImageView medicalImageView;
-
-    @FXML
     private Text nameField;
 
     @FXML
     private ImageView statisticsImageView;
-
-    @FXML
-    private ImageView technologyImageView;
 
     @FXML
     private Text universityField;
@@ -79,31 +61,30 @@ public class MainScreenController {
         }
     }
 
-    public HBox createJobHBox(Job job) {
-        HBox hbox = new HBox();
-        Label nameLabel = createLabel(job.getName(), 180, 50, 18, Pos.CENTER_LEFT);
-        Label salaryLabel = createLabel(job.getSalary(), 170, 50, 22, Pos.CENTER);
-        Label workSetupLabel = createLabel(job.getWorkSetup(), 150, 50, 15, Pos.CENTER);
-        Label degreeLabel = createLabel(job.getDegree(), 250, 50, 18, Pos.CENTER);
+    @FXML
+    void searchClicked() {
+        String jobName = jobNameTextField.getText();
+        jobsVBox.getChildren().clear();
 
-        hbox.getChildren().addAll(nameLabel, salaryLabel, workSetupLabel, degreeLabel);
-        hbox.setAlignment(Pos.CENTER);
-
-        return hbox;
-    }
-
-    public Label createLabel(String string, double width, double height, double fontSize, Pos pos) {
-        Label label = new Label(string);
-        label.setPrefWidth(width);
-        label.setPrefHeight(height);
-        label.setAlignment(Pos.CENTER);
-        label.setFont(new Font(fontSize));
-        return label;
+        for (int i = 0; i < jobList.getSize(); i++) {
+            int jobIndex = jobList.searchJobByName(jobName);
+            if (jobIndex != -1) {
+                Job currentJob = jobList.getJob(jobIndex);
+                HBox jobHBox = createJobHBox(currentJob);
+                jobsVBox.getChildren().add(jobHBox);
+                jobNameTextField.clear();
+                break;
+            }
+        }
     }
 
     @FXML
-    void creativesClicked() {
-
+    void allClicked() {
+        for (int i = 0; i < jobList.getSize(); i++) {
+            Job currentJob = jobList.getJob(i);
+            HBox jobHBox = createJobHBox(currentJob);
+            jobsVBox.getChildren().add(jobHBox);
+        }
     }
 
     @FXML
@@ -126,27 +107,62 @@ public class MainScreenController {
     }
 
     @FXML
-    void engineeringClicked() {
+    void medicalClicked() {
+        displayJobsByField("Medical");
+    }
 
+    @FXML
+    void engineeringClicked() {
+        displayJobsByField("Engineering");
+    }
+
+    public void displayJobsByField(String field) {
+        jobsVBox.getChildren().clear();
+
+        for (int i = 0; i < jobList.getSize(); i++) {
+            Job currentJob = jobList.getJob(i);
+
+            if (currentJob.getField().equalsIgnoreCase(field)) {
+                HBox jobHBox = createJobHBox(currentJob);
+                jobsVBox.getChildren().add(jobHBox);
+            }
+        }
+    }
+
+    @FXML
+    void technologyClicked() {
+        displayJobsByField("Technology");
+    }
+
+    @FXML
+    void creativesClicked() {
+        displayJobsByField("Creatives");
     }
 
     @FXML
     void financeClicked() {
-
+        displayJobsByField("Finance");
     }
 
-    @FXML
-    void medicalClicked(ActionEvent event) {
+    public HBox createJobHBox(Job job) {
+        HBox hbox = new HBox();
+        Label nameLabel = createLabel(job.getName(), 180, 50, 18, Pos.CENTER_LEFT);
+        Label salaryLabel = createLabel(job.getSalary(), 170, 50, 22, Pos.CENTER);
+        Label workSetupLabel = createLabel(job.getWorkSetup(), 150, 50, 15, Pos.CENTER);
+        Label degreeLabel = createLabel(job.getDegree(), 250, 50, 18, Pos.CENTER);
 
+        hbox.getChildren().addAll(nameLabel, salaryLabel, workSetupLabel, degreeLabel);
+        hbox.setAlignment(Pos.CENTER);
+
+        return hbox;
     }
 
-    @FXML
-    void searchClicked(ActionEvent event) {
-
-    }
-
-    @FXML
-    void technologyClicked(ActionEvent event) {
-
+    public Label createLabel(String string, double width, double height, double fontSize, Pos pos) {
+        Label label = new Label(string);
+        label.setPrefWidth(width);
+        label.setPrefHeight(height);
+        label.setAlignment(Pos.CENTER);
+        label.setFont(new Font(fontSize));
+        return label;
     }
 }

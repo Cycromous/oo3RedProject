@@ -18,3 +18,5 @@ Game Designer,Creatives,₱65 000,Work-from-Home,Art Degree
 Investment Analyst,Finance,₱85 000,On-Site,Finance Degree
 Software Developer,Technology,₱90 000,Hybrid,Computer Science Degree
 Biomedical Engineer,Engineering,₱80 000,Work-from-Home,Engineering Degree
+Pediatrician,Medical,₱110 000,On-Site,Medical Degree
+Automation Engineer,Engineering,₱85 000,Work-from-Home,Engineering Degree

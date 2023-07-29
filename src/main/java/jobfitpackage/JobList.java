@@ -51,10 +51,10 @@ public class JobList {
     public int searchJobByField(String field) {
         for (int i = 0; i < jobArrayList.size(); i++) {
             if (jobArrayList.get(i).getField().equalsIgnoreCase(field)) {
-                return i; // Return the index of the job if the field  matches (case-insensitive)
+                return i; // Return the index of the job if the field matches (case-insensitive)
             }
         }
-        return -1; // Return -1 if the username is not found in any profile
+        return -1; // Return -1 if the field is not found in any job
     }
 
     public int searchJobByName(String name) {

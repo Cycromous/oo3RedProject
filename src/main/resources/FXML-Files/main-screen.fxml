@@ -22,39 +22,36 @@
          <Image url="@../assets/logo.png" />
       </image>
    </ImageView>
-   <ScrollPane fx:id="jobsScrollPane" layoutX="41.0" layoutY="210.0" prefHeight="440.0" prefWidth="750.0">
+   <HBox layoutX="42.0" layoutY="208.0" prefHeight="50.0" prefWidth="748.0">
+      <children>
+         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="181.0" style="-fx-background-color: #4267B2; -fx-border-color: #000000; -fx-border-width: 0.5;" text="Job Name" textFill="WHITE">
+            <font>
+               <Font size="22.0" />
+            </font>
+         </Label>
+         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="170.0" style="-fx-background-color: #4267B2; -fx-border-color: #000000; -fx-border-width: 0.5;" text="Expected Salary" textFill="WHITE">
+            <font>
+               <Font size="22.0" />
+            </font>
+         </Label>
+         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="148.0" style="-fx-background-color: #4267B2; -fx-border-color: #000000; -fx-border-width: 0.5;" text="Work Set-Up" textFill="WHITE">
+            <font>
+               <Font size="22.0" />
+            </font>
+         </Label>
+         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: #4267B2; -fx-border-color: #000000; -fx-border-width: 0.5;" text="Required Degree" textFill="WHITE">
+            <font>
+               <Font size="22.0" />
+            </font>
+         </Label>
+      </children>
+   </HBox>
+   <ScrollPane fx:id="jobsScrollPane" hbarPolicy="NEVER" layoutX="41.0" layoutY="259.0" prefHeight="390.0" prefWidth="750.0">
       <content>
-         <StackPane prefHeight="440.0" prefWidth="750.0">
+         <StackPane prefHeight="390.0" prefWidth="750.0">
             <children>
-               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITESMOKE" height="440.0" stroke="#ffffff00" strokeType="INSIDE" width="750.0" />
-               <VBox fx:id="jobsVBox" prefHeight="440.0" prefWidth="750.0">
-                  <children>
-                     <HBox prefHeight="50.0" prefWidth="748.0">
-                        <children>
-                           <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="181.0" style="-fx-background-color: #4267B2; -fx-border-color: #000000; -fx-border-width: 0.5;" text="Job Name" textFill="WHITE">
-                              <font>
-                                 <Font size="22.0" />
-                              </font>
-                           </Label>
-                           <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="170.0" style="-fx-background-color: #4267B2; -fx-border-color: #000000; -fx-border-width: 0.5;" text="Expected Salary" textFill="WHITE">
-                              <font>
-                                 <Font size="22.0" />
-                              </font>
-                           </Label>
-                           <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="148.0" style="-fx-background-color: #4267B2; -fx-border-color: #000000; -fx-border-width: 0.5;" text="Work Set-Up" textFill="WHITE">
-                              <font>
-                                 <Font size="22.0" />
-                              </font>
-                           </Label>
-                           <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: #4267B2; -fx-border-color: #000000; -fx-border-width: 0.5;" text="Required Degree" textFill="WHITE">
-                              <font>
-                                 <Font size="22.0" />
-                              </font>
-                           </Label>
-                        </children>
-                     </HBox>
-                  </children>
-               </VBox>
+               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITESMOKE" height="390.0" stroke="#ffffff00" strokeType="INSIDE" width="750.0" />
+               <VBox fx:id="jobsVBox" prefHeight="390.0" prefWidth="750.0" />
             </children>
          </StackPane>
       </content>
@@ -62,10 +59,11 @@
     <Label alignment="CENTER" contentDisplay="CENTER" layoutX="163.0" layoutY="30.0" prefHeight="70.0" prefWidth="336.0" text="JobFit Explorer" textAlignment="CENTER" textFill="WHITE">
       <font>
          <Font size="48.0" />
-      </font></Label>
+      </font>
+   </Label>
 
 
-    <Button layoutX="41.0" layoutY="666.0" onAction="#editProfileClicked" prefHeight="40.0" prefWidth="140.0" style="-fx-background-radius: 15; -fx-background-color: #4267B2;" text="Profile" textAlignment="CENTER" textFill="WHITE">
+    <Button fx:id="profileButton" layoutX="41.0" layoutY="666.0" onAction="#editProfileClicked" prefHeight="40.0" prefWidth="140.0" style="-fx-background-radius: 15; -fx-background-color: #4267B2;" text="Profile" textAlignment="CENTER" textFill="WHITE">
       <font>
          <Font size="18.0" />
       </font></Button>

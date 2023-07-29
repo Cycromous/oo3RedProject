@@ -9,7 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class MainScreenController {
@@ -70,10 +70,10 @@ public class MainScreenController {
 
     public HBox createJobHBox(Job job) {
         HBox hbox = new HBox();
-        Label nameLabel = createLabel(job.getName(), 180, 50);
-        Label salaryLabel = createLabel(job.getSalary(), 170, 50);
-        Label workSetupLabel = createLabel(job.getWorkSetup(), 150, 50);
-        Label degreeLabel = createLabel(job.getDegree(), 250, 50);
+        Label nameLabel = createLabel(job.getName(), 180, 50, 18, Pos.CENTER_LEFT);
+        Label salaryLabel = createLabel(job.getSalary(), 170, 50, 22, Pos.CENTER);
+        Label workSetupLabel = createLabel(job.getWorkSetup(), 150, 50, 15, Pos.CENTER);
+        Label degreeLabel = createLabel(job.getDegree(), 250, 50, 18, Pos.CENTER);
 
         hbox.getChildren().addAll(nameLabel, salaryLabel, workSetupLabel, degreeLabel);
         hbox.setAlignment(Pos.CENTER);
@@ -81,11 +81,12 @@ public class MainScreenController {
         return hbox;
     }
 
-    public Label createLabel(String string, double width, double height) {
+    public Label createLabel(String string, double width, double height, double fontSize, Pos pos) {
         Label label = new Label(string);
         label.setPrefWidth(width);
         label.setPrefHeight(height);
-        label.setTextFill(Color.BLACK);
+        label.setAlignment(Pos.CENTER);
+        label.setFont(new Font(fontSize));
         return label;
     }
 

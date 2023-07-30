@@ -2,6 +2,7 @@ package jobfitpackage;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -111,35 +112,35 @@ public class MainScreenController {
     }
 
     @FXML
-    void medicalClicked() throws IOException {
+    void medicalClicked() {
         field = "Medical";
         displayJobsByField(field);
         setStatisticsImageView(field);
     }
 
     @FXML
-    void engineeringClicked() throws IOException {
+    void engineeringClicked() {
         field = "Engineering";
         displayJobsByField(field);
         setStatisticsImageView(field);
     }
 
     @FXML
-    void technologyClicked() throws IOException {
+    void technologyClicked() {
         field = "Technology";
         displayJobsByField(field);
         setStatisticsImageView(field);
     }
 
     @FXML
-    void creativesClicked() throws IOException {
+    void creativesClicked() {
         field = "Creatives";
         displayJobsByField(field);
         setStatisticsImageView(field);
     }
 
     @FXML
-    void financeClicked() throws IOException {
+    void financeClicked() {
         field = "Finance";
         displayJobsByField(field);
         setStatisticsImageView(field);
@@ -172,6 +173,8 @@ public class MainScreenController {
         Label workSetupLabel = createLabel(job.getWorkSetup(), 150, 50, 15, Pos.CENTER);
         Label degreeLabel = createLabel(job.getDegree(), 250, 50, 18, Pos.CENTER);
 
+        nameLabel.setPadding(new Insets(0, 0, 0, 5));
+
         hbox.getChildren().addAll(nameLabel, salaryLabel, workSetupLabel, degreeLabel);
         hbox.setAlignment(Pos.CENTER);
 
@@ -182,7 +185,7 @@ public class MainScreenController {
         Label label = new Label(string);
         label.setPrefWidth(width);
         label.setPrefHeight(height);
-        label.setAlignment(Pos.CENTER);
+        label.setAlignment(pos);
         label.setFont(new Font(fontSize));
         return label;
     }

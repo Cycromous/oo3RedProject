@@ -221,7 +221,7 @@
                      <Insets top="10.0" />
                   </VBox.margin>
                </Label>
-               <ImageView fx:id="statisticsImageView" fitHeight="180.0" fitWidth="420.0" pickOnBounds="true" preserveRatio="true" />
+               <ImageView fx:id="statisticsImageView" fitHeight="180.0" fitWidth="420.0" pickOnBounds="true" />
             </children>
          </VBox>
       </children>

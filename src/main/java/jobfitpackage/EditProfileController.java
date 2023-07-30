@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -147,6 +148,7 @@ public class EditProfileController {
     void updateProfileClicked() throws IOException {
         updateProfile(); // Updates the Profile object
         saveProfileToFile(); // Updates the corresponding txt file of the Profile
+        createAlert("Your profile has successfully been updated.", "Profile Edited Successfully");
     }
 
     private void saveProfileToFile() throws  IOException{
@@ -173,6 +175,14 @@ public class EditProfileController {
         profile.setUniversity(universityTextField.getText());
         profile.setExperience(universityTextField.getText());
         profile.setAchievements(achievementsTextField.getText());
+    }
+
+    public void createAlert(String message, String title) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
     @FXML

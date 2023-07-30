@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -16,6 +17,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.io.InputStream;
 
 
 public class MainScreenController {
@@ -25,9 +27,6 @@ public class MainScreenController {
 
     @FXML
     private Text degreeField;
-
-    @FXML
-    private VBox industryVBox;
 
     @FXML
     private TextField jobNameTextField;
@@ -112,38 +111,45 @@ public class MainScreenController {
     }
 
     @FXML
-    void medicalClicked() {
+    void medicalClicked() throws IOException {
         field = "Medical";
         displayJobsByField(field);
-        // TODO: Display ImageView of Industry Statistics of respective field
+        setStatisticsImageView(field);
     }
 
     @FXML
-    void engineeringClicked() {
+    void engineeringClicked() throws IOException {
         field = "Engineering";
         displayJobsByField(field);
-        // TODO: Display ImageView of Industry Statistics of respective field
+        setStatisticsImageView(field);
     }
 
     @FXML
-    void technologyClicked() {
+    void technologyClicked() throws IOException {
         field = "Technology";
         displayJobsByField(field);
-        // TODO: Display ImageView of Industry Statistics of respective field
+        setStatisticsImageView(field);
     }
 
     @FXML
-    void creativesClicked() {
+    void creativesClicked() throws IOException {
         field = "Creatives";
         displayJobsByField(field);
-        // TODO: Display ImageView of Industry Statistics of respective field
+        setStatisticsImageView(field);
     }
 
     @FXML
-    void financeClicked() {
+    void financeClicked() throws IOException {
         field = "Finance";
         displayJobsByField(field);
-        // TODO: Display ImageView of Industry Statistics of respective field
+        setStatisticsImageView(field);
+    }
+
+    public void setStatisticsImageView(String field) {
+        InputStream imagePath = getClass().getResourceAsStream("/assets/" + field + "Statistics.png");
+        Image statisticsImage = new Image(imagePath);
+
+        statisticsImageView.setImage(statisticsImage);
     }
 
     public void displayJobsByField(String field) {

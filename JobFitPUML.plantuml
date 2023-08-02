@@ -1,200 +1,198 @@
 @startuml
 
-title __JOBFITPACKAGE's Class Diagram__\n
+title __UML Diagram__\n
 
 set namespaceseparator none
-    namespace jobfitpackage {
-      class EditProfileController {
-          ~ file : File
-          - achievementsTextField : TextField
-          - degreeTextField : TextField
-          - experienceTextField : TextField
-          - introductionTextArea : TextArea
-          - logoImageView : ImageView
-          - logoImageView1 : ImageView
-          - nameTextField : TextField
-          - universityTextField : TextField
-          + createAlert()
-          + createNewProfile()
-          + initialize()
-          + loadProfileDetails()
-          + setTextFields()
-          + switchToMainScreen()
-          + updateProfile()
-          ~ mainMenuClicked()
-          ~ updateProfileClicked()
-          - saveProfileToFile()
-      }
-    }
 
-    namespace jobfitpackage {
-      class Job {
-          ~ degree : String
-          ~ field : String
-          ~ name : String
-          ~ salary : String
-          ~ workSetup : String
-          + Job()
-          + getDegree()
-          + getField()
-          + getName()
-          + getSalary()
-          + getWorkSetup()
-          + setDegree()
-          + setField()
-          + setName()
-          + setSalary()
-          + setWorkSetup()
-      }
-    }
+namespace javafx.application {
+  class Application {}
+}
 
-    namespace jobfitpackage {
-      class JobList {
-          - jobArrayList : ArrayList<Job>
-          + JobList()
-          + addJob()
-          + getJob()
-          + getSize()
-          + loadJobs()
-          + searchJobByField()
-          + searchJobByName()
-          - getJobFromLine()
-      }
-    }
+namespace jobfitpackage {
+  class EditProfileController {
+      - achievementsTextField : TextField
+      - degreeTextField : TextField
+      - experienceTextField : TextField
+      - file : File
+      - introductionTextArea : TextArea
+      - nameTextField : TextField
+      - universityTextField : TextField
+      + createAlert()
+      + initialize()
+      + loadProfileDetails()
+      + setTextFields()
+      + updateProfile()
+      ~ mainMenuClicked()
+      ~ updateProfileClicked()
+      - saveProfileToFile()
+  }
+}
 
-    namespace jobfitpackage {
-      class Main {
-          {static} + main()
-          + start()
-      }
+namespace jobfitpackage {
+    class Profile {
+        ~ achievements : String
+        ~ degree : String
+        ~ email : String
+        ~ experience : String
+        ~ introduction : String
+        ~ name : String
+        ~ password : String
+        ~ university : String
+        ~ username : String
+        + Profile()
+        + getAchievements()
+        + getDegree()
+        + getEmail()
+        + getExperience()
+        + getIntroduction()
+        + getName()
+        + getPassword()
+        + getUniversity()
+        + getUsername()
+        + setAchievements()
+        + setDegree()
+        + setExperience()
+        + setIntroduction()
+        + setName()
+        + setUniversity()
     }
-
-    namespace jobfitpackage {
-      class MainScreenController {
-          - degreeField : Text
-          - field : String
-          - industryVBox : VBox
-          - jobNameTextField : TextField
-          - jobsVBox : VBox
-          - nameField : Text
-          - profileButton : Button
-          - statisticsImageView : ImageView
-          - universityField : Text
-          + createJobHBox()
-          + createLabel()
-          + displayJobsByField()
-          + initialize()
-          + switchToProfileScreen()
-          ~ allClicked()
-          ~ creativesClicked()
-          ~ editProfileClicked()
-          ~ engineeringClicked()
-          ~ financeClicked()
-          ~ medicalClicked()
-          ~ searchClicked()
-          ~ technologyClicked()
-      }
-    }
-
-    namespace jobfitpackage {
-      class Profile {
-          ~ achievements : String
-          ~ degree : String
-          ~ email : String
-          ~ experience : String
-          ~ introduction : String
-          ~ name : String
-          ~ password : String
-          ~ university : String
-          ~ username : String
-          + Profile()
-          + getAchievements()
-          + getDegree()
-          + getEmail()
-          + getExperience()
-          + getIntroduction()
-          + getName()
-          + getPassword()
-          + getUniversity()
-          + getUsername()
-          + setAchievements()
-          + setDegree()
-          + setExperience()
-          + setIntroduction()
-          + setName()
-          + setUniversity()
-      }
-    }
-
-    namespace jobfitpackage {
-      class ProfileList {
-          {static} - LOGIN_DETAILS_PATH : String
-          {static} - instance : ProfileList
-          - profileArrayList : ArrayList<Profile>
-          + addProfile()
-          {static} + getInstance()
-          + getProfile()
-          + loadLoginDetails()
-          + searchProfileEmail()
-          + searchProfileUsername()
-          - ProfileList()
-          - getProfileFromLine()
-      }
-    }
-
-    namespace jobfitpackage {
-      class SessionManager {
-          {static} - currentProfile : Profile
-          {static} + getCurrentProfile()
-          {static} + setCurrentProfile()
-      }
-    }
-
-    namespace jobfitpackage {
-      class SignInController {
-          - passwordTextField : TextField
-          - signupHyperlink : Hyperlink
-          - usernameTextField : TextField
-          + createAlert()
-          + setProfileList()
-          + switchToMainScreen()
-          ~ initialize()
-          ~ signInClicked()
-          ~ signUpClicked()
-      }
-    }
-
-    namespace jobfitpackage {
-      class SignUpController {
-          - emailTextField : TextField
-          - passwordTextField : TextField
-          - signinHyperlink : Hyperlink
-          - usernameTextField : TextField
-          + createAlert()
-          + createNewAccount()
-          + setProfileList()
-          ~ createAccountClicked()
-          ~ initialize()
-          ~ signInClicked()
-      }
-    }
-
-  namespace javafx.application {
-  class Application
   }
 
-  EditProfileController o-- Profile : profile
-  Main -up-|> Application
-  MainScreenController o-- JobList : jobList
-  MainScreenController o--- Profile : profile
-  SignInController o-- Profile : currentProfile
-  SignInController o-- ProfileList : profileList
-  SignUpController o-- ProfileList : profileList
+namespace jobfitpackage {
+  class JobList {
+      - jobArrayList : ArrayList<Job>
+      + JobList()
+      + addJob()
+      + getJob()
+      + getSize()
+      + loadJobs()
+      + searchJobByField()
+      + searchJobByName()
+      - getJobFromLine()
+  }
+}
 
-right footer
+namespace jobfitpackage {
+  class Main {
+      {static} + main()
+      + start()
+  }
+}
 
-PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
-For more information about this tool, please contact philippe.mesmeur@gmail.com
-endfooter
+namespace jobfitpackage {
+  class MainScreenController {
+      - degreeField : Text
+      - field : String
+      - file : File
+      - jobNameTextField : TextField
+      - jobsVBox : VBox
+      - nameField : Text
+      - profileButton : Button
+      - statisticsImageView : ImageView
+      - universityField : Text
+      + createJobHBox()
+      + createLabel()
+      + createNewProfile()
+      + displayJobsByField()
+      + initialize()
+      + loadProfileDetails()
+      + setStatisticsImageView()
+      + setTextFields()
+      ~ allClicked()
+      ~ creativesClicked()
+      ~ editProfileClicked()
+      ~ engineeringClicked()
+      ~ financeClicked()
+      ~ jobFinderClicked()
+      ~ medicalClicked()
+      ~ searchClicked()
+      ~ technologyClicked()
+      - containsAnyKeyword()
+      - readIndustryKeywords()
+  }
+}
+
+namespace jobfitpackage {
+  class ProfileList {
+      {static} - LOGIN_DETAILS_PATH : String
+      {static} - instance : ProfileList
+      - profileArrayList : ArrayList<Profile>
+      + addProfile()
+      {static} + getInstance()
+      + getProfile()
+      + loadLoginDetails()
+      + searchProfileEmail()
+      + searchProfileUsername()
+      - ProfileList()
+      - getProfileFromLine()
+  }
+}
+
+namespace jobfitpackage {
+  class SignInController {
+      - passwordTextField : TextField
+      - signupHyperlink : Hyperlink
+      - usernameTextField : TextField
+      + createAlert()
+      + setProfileList()
+      + switchToMainScreen()
+      ~ initialize()
+      ~ signInClicked()
+      ~ signUpClicked()
+  }
+}
+
+namespace jobfitpackage {
+  class SignUpController {
+      - emailTextField : TextField
+      - passwordTextField : TextField
+      - signinHyperlink : Hyperlink
+      - usernameTextField : TextField
+      + createAlert()
+      + createNewAccount()
+      + setProfileList()
+      ~ createAccountClicked()
+      ~ initialize()
+      ~ signInClicked()
+  }
+}
+
+namespace jobfitpackage {
+  class SessionManager {
+      {static} - currentProfile : Profile
+      {static} + getCurrentProfile()
+      {static} + setCurrentProfile()
+  }
+}
+
+namespace jobfitpackage {
+  class Job {
+      ~ degree : String
+      ~ field : String
+      ~ name : String
+      ~ salary : String
+      ~ workSetup : String
+      + Job()
+      + getDegree()
+      + getField()
+      + getName()
+      + getSalary()
+      + getWorkSetup()
+      + setDegree()
+      + setField()
+      + setName()
+      + setSalary()
+      + setWorkSetup()
+  }
+}
+
+
+EditProfileController o-- Profile : profile
+Main -up-|> Application
+MainScreenController o-- JobList : jobList
+MainScreenController o-- Profile : profile
+SignInController o-- Profile : currentProfile
+SignInController o-- ProfileList : profileList
+SignUpController o-- ProfileList : profileList
 
 @enduml

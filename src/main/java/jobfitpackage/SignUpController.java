@@ -20,10 +20,6 @@ public class SignUpController {
     @FXML
     private Hyperlink signinHyperlink;
 
-    public void setProfileList(ProfileList profileList) {
-        this.profileList = profileList;
-    }
-
     @FXML
     void initialize() {
         profileList = ProfileList.getInstance();

@@ -317,4 +317,17 @@ public class MainScreenController {
         label.setFont(new Font(fontSize));
         return label;
     }
+
+    @FXML
+    void signOutClicked() throws IOException {
+        // Get a reference to the Stage from the current scene
+        Stage currentStage = (Stage) nameField.getScene().getWindow();
+
+        // Load the FXML file for the new scene
+        Parent signinSceneRoot = FXMLLoader.load(getClass().getResource("/FXML-Files/sign-in.fxml"));
+        Scene signinScene = new Scene(signinSceneRoot);
+        currentStage.setScene(signinScene);
+        currentStage.setTitle("Sign In");
+        currentStage.centerOnScreen();
+    }
 }

@@ -1,17 +1,16 @@
 package jobfitpackage;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
-public class SignUpController {
+public class SignUpController extends AbstractController {
     private ProfileList profileList;
 
     @FXML
@@ -21,20 +20,13 @@ public class SignUpController {
     private Hyperlink signinHyperlink;
 
     @FXML
-    void initialize() {
+    public void initialize() {
         profileList = ProfileList.getInstance();
     }
 
     @FXML
     void signInClicked() throws IOException {
-        // Get a reference to the Stage from the current scene
-        Stage currentStage = (Stage) signinHyperlink.getScene().getWindow();
-
-        // Load the FXML file for the new scene
-        Parent signinSceneRoot = FXMLLoader.load(getClass().getResource("/FXML-Files/sign-in.fxml"));
-        Scene signinScene = new Scene(signinSceneRoot);
-        currentStage.setScene(signinScene);
-        currentStage.setTitle("Sign In");
+        switchScene("/FXML-Files/sign-in.fxml", "Sign In");
     }
 
     @FXML

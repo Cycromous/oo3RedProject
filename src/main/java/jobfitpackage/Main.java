@@ -15,6 +15,9 @@ public class Main extends Application {
         ProfileList profileList = ProfileList.getInstance();
         profileList.loadLoginDetails();
 
+        // Set the primary stage in the SessionManager
+        SessionManager.setPrimaryStage(stage);
+
         // Load the FXML file for the sign-in scene
         FXMLLoader signInLoader = new FXMLLoader(getClass().getResource("/FXML-Files/sign-in.fxml"));
         Parent signInRoot = signInLoader.load();

@@ -1,17 +1,12 @@
 package jobfitpackage;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 import java.io.*;
 
-public class EditProfileController {
+public class EditProfileController extends AbstractController {
     private File file;
 
     @FXML
@@ -23,13 +18,18 @@ public class EditProfileController {
     private Profile profile;
 
     @FXML
-    public void initialize() throws IOException {
+    @Override
+    public void initialize() {
         profile = SessionManager.getCurrentProfile();
         String fileName = profile.username + "Details.txt";
         String filePath = "src/main/resources/profile-details/" + fileName;
 
         file = new File(filePath);
-        loadProfileDetails();
+        try {
+            loadProfileDetails();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void loadProfileDetails() throws IOException {
@@ -99,26 +99,8 @@ public class EditProfileController {
         writer.close();
     }
 
-    public void createAlert(String message, String title) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
-
     @FXML
     void mainMenuClicked() throws IOException {
-        // Get a reference to the Stage from the current scene
-        Stage currentStage = (Stage) nameTextField.getScene().getWindow();
-
-        // Load the FXML file for the main screen scene
-        FXMLLoader mainScreenLoader = new FXMLLoader(getClass().getResource("/FXML-Files/main-screen.fxml"));
-        Parent mainScreenRoot = mainScreenLoader.load();
-
-        Scene mainScreenScene = new Scene(mainScreenRoot);
-        currentStage.setScene(mainScreenScene);
-        currentStage.setTitle("JobFit Explorer");
-        currentStage.centerOnScreen();
+        switchScene("/FXML-Files/main-screen.fxml", "JobFit Explorer");
     }
 }

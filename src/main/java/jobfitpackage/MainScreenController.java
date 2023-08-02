@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MainScreenController {
+public class MainScreenController extends AbstractController {
     private File file;
     private JobList jobList;
     private String field;
@@ -50,6 +50,7 @@ public class MainScreenController {
     private Button profileButton;
 
     @FXML
+    @Override
     public void initialize() {
         profile = SessionManager.getCurrentProfile();
 
@@ -320,14 +321,6 @@ public class MainScreenController {
 
     @FXML
     void signOutClicked() throws IOException {
-        // Get a reference to the Stage from the current scene
-        Stage currentStage = (Stage) nameField.getScene().getWindow();
-
-        // Load the FXML file for the new scene
-        Parent signinSceneRoot = FXMLLoader.load(getClass().getResource("/FXML-Files/sign-in.fxml"));
-        Scene signinScene = new Scene(signinSceneRoot);
-        currentStage.setScene(signinScene);
-        currentStage.setTitle("Sign In");
-        currentStage.centerOnScreen();
+        switchScene("/FXML-Files/sign-in.fxml", "Sign In");
     }
 }

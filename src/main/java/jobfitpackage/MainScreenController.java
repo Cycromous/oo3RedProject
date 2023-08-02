@@ -17,11 +17,13 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainScreenController {
+    private File file;
     private JobList jobList;
     private String field;
     private Profile profile;
@@ -51,6 +53,9 @@ public class MainScreenController {
     public void initialize() {
         profile = SessionManager.getCurrentProfile();
 
+        String fileName = profile.username + "Details.txt";
+        String filePath = "src/main/resources/profile-details/" + fileName;
+
         jobList = new JobList();
         jobList.loadJobs();
 
@@ -61,10 +66,75 @@ public class MainScreenController {
             jobsVBox.getChildren().add(jobHBox);
         }
 
-        // Update Name, Degree, and University Attended TextFields
-        if (profile.getName() != null) nameField.setText(profile.getName());
-        if (profile.getDegree() != null) degreeField.setText(profile.getDegree());
-        if (profile.getUniversity() != null) universityField.setText(profile.getUniversity());
+        try {
+            file = new File(filePath);
+            if (!file.exists()) {
+                // If the file doesn't exist, create a new one with default values
+                createNewProfile();
+            } else {
+                // If the file exists, load the details from the file and set them to the profile
+                loadProfileDetails();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void createNewProfile() throws IOException {
+        // Create a new file with default values
+        BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+
+        writer.write("");
+        writer.newLine();
+        writer.write("");
+        writer.newLine();
+        writer.write("");
+        writer.newLine();
+        writer.write("");
+        writer.newLine();
+        writer.write("");
+        writer.newLine();
+        writer.write("");
+        writer.newLine();
+        writer.close();
+
+        // Set the default values to the profile
+        profile.setName("");
+        profile.setIntroduction("");
+        profile.setDegree("");
+        profile.setUniversity("");
+        profile.setExperience("");
+        profile.setAchievements("");
+    }
+
+    public void loadProfileDetails() throws IOException {
+        // Load the details of the Profile using the file's lines
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        String name = reader.readLine();
+        String introduction = reader.readLine();
+        String degree = reader.readLine();
+        String university = reader.readLine();
+        String experience = reader.readLine();
+        String achievements = reader.readLine();
+        reader.close();
+
+        // Set the values to the profile's attributes
+        profile.setName(name);
+        profile.setIntroduction(introduction);
+        profile.setDegree(degree);
+        profile.setUniversity(university);
+        profile.setExperience(experience);
+        profile.setAchievements(achievements);
+
+        // Update the text fields and text area with the loaded profile details
+        setTextFields();
+    }
+
+    @FXML
+    public void setTextFields() {
+        nameField.setText(profile.getName());
+        degreeField.setText(profile.getDegree());
+        universityField.setText(profile.getUniversity());
     }
 
     @FXML
@@ -95,10 +165,6 @@ public class MainScreenController {
 
     @FXML
     void editProfileClicked() throws IOException {
-        switchToProfileScreen(this.profile);
-    }
-
-    public void switchToProfileScreen(Profile profile) throws IOException {
         // Get a reference to the Stage from the current scene
         Stage currentStage = (Stage) profileButton.getScene().getWindow();
 
@@ -109,11 +175,71 @@ public class MainScreenController {
         Scene profileScreenScene = new Scene(profileScreenRoot);
         currentStage.setScene(profileScreenScene);
         currentStage.setTitle("Profile");
+        currentStage.centerOnScreen();
+    }
+
+    @FXML
+    void jobFinderClicked() {
+        List<String> medicalKeywords = readIndustryKeywords("MedicalKeywords.txt");
+        List<String> engineeringKeywords = readIndustryKeywords("EngineeringKeywords.txt");
+        List<String> technologyKeywords = readIndustryKeywords("TechnologyKeywords.txt");
+        List<String> creativesKeywords = readIndustryKeywords("CreativesKeywords.txt");
+        List<String> financeKeywords = readIndustryKeywords("FinanceKeywords.txt");
+
+        jobsVBox.getChildren().clear();
+
+        String jobDegree = degreeField.getText();
+        if (containsAnyKeyword(jobDegree, medicalKeywords)) {
+            field = "Medical";
+            displayJobsByField(field);
+        }
+        if (containsAnyKeyword(jobDegree, engineeringKeywords)) {
+            field = "Engineering";
+            displayJobsByField(field);
+        }
+        if (containsAnyKeyword(jobDegree, technologyKeywords)) {
+            field = "Technology";
+            displayJobsByField(field);
+        }
+        if (containsAnyKeyword(jobDegree, creativesKeywords)) {
+            field = "Creatives";
+            displayJobsByField(field);
+        }
+        if (containsAnyKeyword(jobDegree, financeKeywords)) {
+            field = "Finance";
+            displayJobsByField(field);
+        }
+    }
+
+    private List<String> readIndustryKeywords(String fileName) {
+        String filePath = "src/main/resources/industry-keywords/" + fileName;
+        List<String> keywords = new ArrayList<>();
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (!line.trim().isEmpty()) {
+                    keywords.add(line.toLowerCase());
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return keywords;
+    }
+
+    // Check if the given degree contains any of the specified keywords
+    private boolean containsAnyKeyword(String degree, List<String> keywords) {
+        for (String keyword : keywords) {
+            // Use toLowerCase for case-insensitive searching
+            if (degree.toLowerCase().contains(keyword)) return true;
+        }
+        return false;
     }
 
     @FXML
     void medicalClicked() {
         field = "Medical";
+        jobsVBox.getChildren().clear();
         displayJobsByField(field);
         setStatisticsImageView(field);
     }
@@ -121,6 +247,7 @@ public class MainScreenController {
     @FXML
     void engineeringClicked() {
         field = "Engineering";
+        jobsVBox.getChildren().clear();
         displayJobsByField(field);
         setStatisticsImageView(field);
     }
@@ -128,6 +255,7 @@ public class MainScreenController {
     @FXML
     void technologyClicked() {
         field = "Technology";
+        jobsVBox.getChildren().clear();
         displayJobsByField(field);
         setStatisticsImageView(field);
     }
@@ -135,6 +263,7 @@ public class MainScreenController {
     @FXML
     void creativesClicked() {
         field = "Creatives";
+        jobsVBox.getChildren().clear();
         displayJobsByField(field);
         setStatisticsImageView(field);
     }
@@ -142,6 +271,7 @@ public class MainScreenController {
     @FXML
     void financeClicked() {
         field = "Finance";
+        jobsVBox.getChildren().clear();
         displayJobsByField(field);
         setStatisticsImageView(field);
     }
@@ -154,8 +284,6 @@ public class MainScreenController {
     }
 
     public void displayJobsByField(String field) {
-        jobsVBox.getChildren().clear();
-
         for (int i = 0; i < jobList.getSize(); i++) {
             Job currentJob = jobList.getJob(i);
 

@@ -1,0 +1,9 @@
+medical
+medicine
+nursing
+pharmacy
+physical therapy
+radiologic technology
+dentistry
+optometry
+veterinary

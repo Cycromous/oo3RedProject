@@ -67,7 +67,7 @@
       <font>
          <Font size="18.0" />
       </font></Button>
-   <Button layoutX="199.0" layoutY="666.0" onAction="#editProfileClicked" prefHeight="40.0" prefWidth="140.0" style="-fx-background-radius: 15; -fx-background-color: #4267B2;" text="Job Finder" textAlignment="CENTER" textFill="WHITE">
+   <Button layoutX="199.0" layoutY="666.0" onAction="#jobFinderClicked" prefHeight="40.0" prefWidth="140.0" style="-fx-background-radius: 15; -fx-background-color: #4267B2;" text="Job Finder" textAlignment="CENTER" textFill="WHITE">
       <font>
          <Font size="18.0" />
       </font>

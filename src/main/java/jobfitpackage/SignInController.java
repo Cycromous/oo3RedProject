@@ -90,5 +90,6 @@ public class SignInController {
         Scene mainScreenScene = new Scene(mainScreenRoot);
         currentStage.setScene(mainScreenScene);
         currentStage.setTitle("JobFit Explorer");
+        currentStage.centerOnScreen();
     }
 }

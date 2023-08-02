@@ -1,11 +1,21 @@
 @startuml
 
-title __UML Diagram__\n
+title __JobFit's UML Diagram__\n
 
 set namespaceseparator none
 
 namespace javafx.application {
   class Application {}
+}
+
+
+namespace jobfitpackage {
+  abstract class AbstractController {
+      + createAlert()
+      + getCurrentStage()
+      {abstract} + initialize()
+      + switchScene()
+  }
 }
 
 namespace jobfitpackage {
@@ -17,7 +27,6 @@ namespace jobfitpackage {
       - introductionTextArea : TextArea
       - nameTextField : TextField
       - universityTextField : TextField
-      + createAlert()
       + initialize()
       + loadProfileDetails()
       + setTextFields()
@@ -29,34 +38,25 @@ namespace jobfitpackage {
 }
 
 namespace jobfitpackage {
-    class Profile {
-        ~ achievements : String
-        ~ degree : String
-        ~ email : String
-        ~ experience : String
-        ~ introduction : String
-        ~ name : String
-        ~ password : String
-        ~ university : String
-        ~ username : String
-        + Profile()
-        + getAchievements()
-        + getDegree()
-        + getEmail()
-        + getExperience()
-        + getIntroduction()
-        + getName()
-        + getPassword()
-        + getUniversity()
-        + getUsername()
-        + setAchievements()
-        + setDegree()
-        + setExperience()
-        + setIntroduction()
-        + setName()
-        + setUniversity()
-    }
+  class Job {
+      ~ degree : String
+      ~ field : String
+      ~ name : String
+      ~ salary : String
+      ~ workSetup : String
+      + Job()
+      + getDegree()
+      + getField()
+      + getName()
+      + getSalary()
+      + getWorkSetup()
+      + setDegree()
+      + setField()
+      + setName()
+      + setSalary()
+      + setWorkSetup()
   }
+}
 
 namespace jobfitpackage {
   class JobList {
@@ -106,9 +106,40 @@ namespace jobfitpackage {
       ~ jobFinderClicked()
       ~ medicalClicked()
       ~ searchClicked()
+      ~ signOutClicked()
       ~ technologyClicked()
       - containsAnyKeyword()
       - readIndustryKeywords()
+  }
+}
+
+namespace jobfitpackage {
+  class Profile {
+      ~ achievements : String
+      ~ degree : String
+      ~ email : String
+      ~ experience : String
+      ~ introduction : String
+      ~ name : String
+      ~ password : String
+      ~ university : String
+      ~ username : String
+      + Profile()
+      + getAchievements()
+      + getDegree()
+      + getEmail()
+      + getExperience()
+      + getIntroduction()
+      + getName()
+      + getPassword()
+      + getUniversity()
+      + getUsername()
+      + setAchievements()
+      + setDegree()
+      + setExperience()
+      + setIntroduction()
+      + setName()
+      + setUniversity()
   }
 }
 
@@ -129,14 +160,23 @@ namespace jobfitpackage {
 }
 
 namespace jobfitpackage {
+  class SessionManager {
+      {static} - currentProfile : Profile
+      {static} - primaryStage : Stage
+      {static} + getCurrentProfile()
+      {static} + getPrimaryStage()
+      {static} + setCurrentProfile()
+      {static} + setPrimaryStage()
+  }
+}
+
+namespace jobfitpackage {
   class SignInController {
       - passwordTextField : TextField
       - signupHyperlink : Hyperlink
       - usernameTextField : TextField
-      + createAlert()
-      + setProfileList()
+      + initialize()
       + switchToMainScreen()
-      ~ initialize()
       ~ signInClicked()
       ~ signUpClicked()
   }
@@ -150,49 +190,21 @@ namespace jobfitpackage {
       - usernameTextField : TextField
       + createAlert()
       + createNewAccount()
-      + setProfileList()
+      + initialize()
       ~ createAccountClicked()
-      ~ initialize()
       ~ signInClicked()
   }
 }
 
-namespace jobfitpackage {
-  class SessionManager {
-      {static} - currentProfile : Profile
-      {static} + getCurrentProfile()
-      {static} + setCurrentProfile()
-  }
-}
-
-namespace jobfitpackage {
-  class Job {
-      ~ degree : String
-      ~ field : String
-      ~ name : String
-      ~ salary : String
-      ~ workSetup : String
-      + Job()
-      + getDegree()
-      + getField()
-      + getName()
-      + getSalary()
-      + getWorkSetup()
-      + setDegree()
-      + setField()
-      + setName()
-      + setSalary()
-      + setWorkSetup()
-  }
-}
-
-
+EditProfileController -up-|> AbstractController
 EditProfileController o-- Profile : profile
 Main -up-|> Application
+MainScreenController -up-|> AbstractController
 MainScreenController o-- JobList : jobList
 MainScreenController o-- Profile : profile
-SignInController o-- Profile : currentProfile
+SignInController -up-|> AbstractController
 SignInController o-- ProfileList : profileList
+SignUpController -up-|> AbstractController
 SignUpController o-- ProfileList : profileList
 
 @enduml

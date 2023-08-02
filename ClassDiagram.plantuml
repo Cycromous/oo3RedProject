@@ -1,37 +1,40 @@
 @startuml
 
-title __Class Diagram__\n
-
+title __JobFit's Class Diagram__\n
 set namespaceseparator none
+namespace jobfitpackage {
+  abstract class AbstractController {}
+  class EditProfileController {}
+  class Job {}
+  class JobList {}
+  class Main {}
+  class MainScreenController {}
+  class Profile {}
+  class ProfileList {}
+  class SessionManager {}
+  class SignInController {}
+  class SignUpController {}
+}
 
 namespace javafx.application {
   class Application {}
 }
 
-namespace jobfitpackage {
-  class JobList {}
-  class MainScreenController {}
-  class Profile {}
-  class ProfileList {}
-  class SignInController {}
-  class EditProfileController {}
-  class SignUpController {}
-  class SessionManager {}
-  class Job {}
-  class Main {}
-}
+SignInController -l[hidden]- EditProfileController
 
-SignUpController -up[hidden]- Main
-Main -l[hidden]- Job
-Main -r[hidden]- SessionManager
+EditProfileController -up-|> AbstractController
+SignInController -up-|> AbstractController
+MainScreenController -up-|> AbstractController
+SignUpController -up-|> AbstractController
 
 EditProfileController o-- Profile : profile
+
 Main -up-|> Application
 
 MainScreenController o-- JobList : jobList
 MainScreenController o-- Profile : profile
-SignInController o-- Profile : currentProfile
-SignInController o-- ProfileList : profileList
-SignUpController o-- ProfileList : profileList
 
+SignInController o-- ProfileList : profileList
+SignInController o-- Profile : currentProfile
+SignUpController o-- ProfileList : profileList
 @enduml

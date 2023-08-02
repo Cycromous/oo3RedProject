@@ -37,20 +37,4 @@ public class Job {
     public void setName(String name) {
         this.name = name;
     }
-
-    public void setField(String field) {
-        this.field = field;
-    }
-
-    public void setSalary(String salary) {
-        this.salary = salary;
-    }
-
-    public void setWorkSetup(String workSetup) {
-        this.workSetup = workSetup;
-    }
-
-    public void setDegree(String degree) {
-        this.degree = degree;
-    }
 }

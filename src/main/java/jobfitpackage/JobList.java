@@ -13,7 +13,6 @@ public class JobList {
     public JobList() {}
 
     public void loadJobs() {
-
         try (InputStream inputStream = ProfileList.class.getClassLoader().getResourceAsStream("JobDataset.txt");
              BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
             String line;
@@ -48,15 +47,6 @@ public class JobList {
         else return null; // Return null if the line is not in the correct format
     }
 
-    public int searchJobByField(String field) {
-        for (int i = 0; i < jobArrayList.size(); i++) {
-            if (jobArrayList.get(i).getField().equalsIgnoreCase(field)) {
-                return i; // Return the index of the job if the field matches (case-insensitive)
-            }
-        }
-        return -1; // Return -1 if the field is not found in any job
-    }
-
     public int searchJobByName(String name) {
         for (int i = 0; i < jobArrayList.size(); i++) {
             if (jobArrayList.get(i).getName().equalsIgnoreCase(name)) {
@@ -68,10 +58,6 @@ public class JobList {
 
     public Job getJob(int index) {
         return jobArrayList.get(index);
-    }
-
-    public void addJob(Job job) {
-        jobArrayList.add(job);
     }
 
     public int getSize() {

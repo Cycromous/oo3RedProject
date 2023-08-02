@@ -70,10 +70,10 @@ public class SignUpController extends AbstractController {
         File file = new File(filePath);
 
         FileWriter fileWriter = new FileWriter(file,true);
-        BufferedWriter bufferWritter = new BufferedWriter(fileWriter);
-        bufferWritter.write(newAccount);
+        BufferedWriter bufferWriter = new BufferedWriter(fileWriter);
+        bufferWriter.write(newAccount);
 
-        bufferWritter.close();
+        bufferWriter.close();
         fileWriter.close();
 
         // Create a new Profile object for the new account

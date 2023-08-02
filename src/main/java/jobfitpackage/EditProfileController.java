@@ -78,7 +78,7 @@ public class EditProfileController extends AbstractController {
         if (!introductionTextArea.getText().isBlank()) profile.setIntroduction(introductionTextArea.getText());
         if (!degreeTextField.getText().isBlank()) profile.setDegree(degreeTextField.getText());
         if (!universityTextField.getText().isBlank())profile.setUniversity(universityTextField.getText());
-        if (!experienceTextField.getText().isBlank()) profile.setExperience(universityTextField.getText());
+        if (!experienceTextField.getText().isBlank()) profile.setExperience(experienceTextField.getText());
         if (!achievementsTextField.getText().isBlank()) profile.setAchievements(achievementsTextField.getText());
     }
 

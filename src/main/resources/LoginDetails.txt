@@ -1,2 +1,3 @@
 admin,admin@gmail.com,admin123
 qwe,qwe,qwe
+johnray,johnray@gmail.com,johnraypogi

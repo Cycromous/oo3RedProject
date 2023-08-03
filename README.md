@@ -19,6 +19,10 @@
 - Top performing industries 
 - Job Finding
 - Industry Statistics
-- 
+
+## Final Project Paper
+[Red Project Proposal.pdf](https://github.com/Cycromous/oo3RedProject/blob/main/Red%20Project%20Proposal.pdf)
+
 ##  Project Demo
 https://youtu.be/rZYGDXynJLY
+

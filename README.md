@@ -15,3 +15,6 @@ Angelo Christian P. Balagtas
 - Top performing industries 
 - Job Finding
 - Industry Statistics
+
+##  Project Demo
+https://youtu.be/rZYGDXynJLY

@@ -1,9 +1,9 @@
 # RED's Project: JobFit Explorer
 
 ## Team Members
-John Ray M. Cardeño (Team Lead)
-Aztine Armelle S. Ganaden
-Angelo Christian P. Balagtas
+- John Ray M. Cardeño (Team Lead)
+- Aztine Armelle S. Ganaden
+- Angelo Christian P. Balagtas
 
 ![JobFit Explorer](https://github.com/Cycromous/oo3RedProject/blob/main/JobFit%20Explorer.jpg)
 

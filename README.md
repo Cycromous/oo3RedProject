@@ -5,8 +5,8 @@ John Ray M. Cardeño (Team Lead)
 Aztine Armelle S. Ganaden
 Angelo Christian P. Balagtas
 
-![Jobfit Explorer]([image_url](https://raw.githubusercontent.com/Cycromous/oo3RedProject/6a3af4c76cf3c2de6a520cf701a5918ef49abee5/JobFit%20Explorer.jpg
-)
+![JobFit Explorer](https://github.com/Cycromous/oo3RedProject/blob/main/JobFit%20Explorer.jpg)
+
 
 ## GOAL 8: Decent Work and Economic Growth
 

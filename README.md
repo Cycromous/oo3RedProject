@@ -1,4 +1,4 @@
-# RED's proposal: JobFit Explorer
+# RED's Project: JobFit Explorer
 
 ## Team Members
 John Ray M. Cardeño (Team Lead)

@@ -5,6 +5,7 @@
 - Aztine Armelle S. Ganaden
 - Angelo Christian P. Balagtas
 
+## App Poster
 ![JobFit Explorer](https://github.com/Cycromous/oo3RedProject/blob/main/JobFit%20Explorer.jpg)
 
 
